@@ -1,6 +1,8 @@
-# Microsoft 365 path validator
+# PathReady for Windows
 
 A read-only PowerShell preflight for a local archive headed to SharePoint Online or OneDrive. Pass the folder you plan to upload and its intended destination. The script reports paths and names worth reviewing before you move anything. No sign-in, dependencies, or network requests.
+
+[PathReady](https://enlightpixel.com/products/pathready) · [Official downloads](https://enlightpixel.com/products/pathready/download) · [EnlightPixel](https://enlightpixel.com/)
 
 ## Run it
 
@@ -18,4 +20,16 @@ Enter a decoded server-relative destination, including the site and library. Use
 
 This preflight does not verify tenant permissions, destination names independently of local entries, sync-client limits, or upload success. Review Microsoft’s current service rules before migration. [Microsoft naming and path limits](https://support.microsoft.com/en-us/onedrive/restrictions-and-limitations-in-onedrive-and-sharepoint)
 
-For a reviewable rename plan, separate verified copy, and handoff report, see [PathReady](https://enlightpixel.com/products/pathready?utm_source=github&utm_medium=referral&utm_campaign=path-validator) or the [PathReady download and requirements](https://enlightpixel.com/products/pathready/download). The standalone PowerShell script is available under MIT.
+PathReady adds a reviewable rename plan, a separate verified copy, and a handoff report. The PowerShell script is MIT-licensed.
+
+## Compare two destinations
+
+Run both commands against the same source folder. A shorter destination recovers room for every file below it. Review remaining findings before changing any source names.
+
+```powershell
+$source = 'C:\Incoming\Archive'
+./Test-M365Path.ps1 -Source $source -Destination '/sites/Operations/Shared Documents/Client archives/2026 handoff'
+./Test-M365Path.ps1 -Source $source -Destination '/sites/Operations/Shared Documents/Handoff'
+```
+
+For checker issues, include your PowerShell version, a made-up relative path, and the result you expected. Keep tenant URLs and real filenames out of public issues. For account or billing help, use [private support](https://enlightpixel.com/contact).
