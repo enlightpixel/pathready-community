@@ -32,4 +32,14 @@ $source = 'C:\Incoming\Archive'
 ./Test-M365Path.ps1 -Source $source -Destination '/sites/Operations/Shared Documents/Handoff'
 ```
 
+## In the app
+
+In PathReady, compare a shorter destination to see which findings it resolves.
+
+![PathReady destination comparison showing the effect of a shorter folder path](docs/screenshots/compare-destinations.png)
+
+Review the remaining name changes before preparing a separate copy.
+
+![PathReady repair plan showing original paths and proposed changes](docs/screenshots/review-repairs.png)
+
 For checker issues, include your PowerShell version, a made-up relative path, and the result you expected. Keep tenant URLs and real filenames out of public issues. For account or billing help, use [private support](https://enlightpixel.com/contact).
